@@ -1,5 +1,11 @@
 #include "phonebook.hpp"
 
+static void	print_head(void)
+{
+	std::cout << u8"\033[2J\033[1;1H";
+	std::cout << "            *~ My PhoneBook! ~*            " << std::endl;
+}
+
 int	Contact::getIndex(void)
 {
 	return this->index_;
@@ -30,6 +36,16 @@ long	Contact::getPhoneNumber(void)
 	return this->phone_number_;
 }
 
+Contact::Contact(void)
+{
+	this->index_ = 0;
+	this->first_name_ = "";
+	this->last_name_ = "";
+	this->nickname_ = "";
+	this->darkest_secret_ = "";
+	this->phone_number_ = 0;
+}
+
 Contact::Contact(int index, std::string first_name, std::string last_name, std::string nickname, std::string darkest_secret, long phone_number)
 {
 	this->index_ = index;
@@ -42,13 +58,16 @@ Contact::Contact(int index, std::string first_name, std::string last_name, std::
 
 void	PhoneBook::searchContact(void)
 {
+	std::string	s = "\0";
+
+	print_head();
 	for (int i=0; i < 8; ++i) {
-		std::cout << (int)this->contacts_[i].getIndex() << std::endl;
-		std::cout << this->contacts_[i].getFirstName() << std::endl;
-		std::cout << this->contacts_[i].getLastName() << std::endl;
-		std::cout << this->contacts_[i].getNickname() << std::endl;
-		std::cout << this->contacts_[i].getDarkestSecret() << std::endl;
-		std::cout << (long)this->contacts_[i].getPhoneNumber() << std::endl;
+		if (!this->contacts_[i].getIndex())
+			break;
+		std::cout << std::setw(10) << this->contacts_[i].getIndex() << "|";
+		std::cout << std::setw(10) << this->contacts_[i].getFirstName() << "|";
+		std::cout << std::setw(10) << this->contacts_[i].getLastName() << "|";
+		std::cout << std::setw(10) << this->contacts_[i].getNickname() << std::endl;
 	}
 }
 
@@ -82,6 +101,7 @@ int	main(void)
 	std::string str;
 	PhoneBook phone_book;
 
+	print_head();
 	while (1){
 		std::cin >> str;
 		if (str == "EXIT")
