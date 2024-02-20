@@ -4,7 +4,7 @@
 
 int	replaceString(std::string file, std::string s1, std::string s2)
 {
-	int	i = 0;
+	size_t	i = 0;
 	size_t	pos;
 	std::string	line;
 	std::string	temp;
@@ -16,9 +16,10 @@ int	replaceString(std::string file, std::string s1, std::string s2)
 		std::cout << "Unable to open " << file << std::endl;
 		return 1;
 	}
-	outFile.open(file + ".replace", std::ios::out);
+	file.append(".replace");
+	outFile.open(file.c_str(), std::ios::out);
 	if (!outFile) {
-		std::cout << "Unable to open " << file << ".replace" << std::endl;
+		std::cout << "Unable to open " << file << std::endl;
 		return 1;
 	}
 	while (getline(inFile, line)) {

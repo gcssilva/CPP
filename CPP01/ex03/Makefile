@@ -1,6 +1,6 @@
 NAME	=	violence
 CXX		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRC		=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJ		=	$(SRC:.cpp=.o)
 
