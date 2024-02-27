@@ -36,7 +36,6 @@ void	PhoneBook::searchContact(void)
 {
 	int	idx;
 
-	print_head();
 	if (this->contacts_[0].getIndex()){
 		std::cout << "|     index|First Name| Last Name| Nick Name|\n";
 		for (int i=0; i < 8; ++i) {
@@ -57,7 +56,6 @@ void	PhoneBook::searchContact(void)
 			}
 			else if (idx > 0 && idx < 9){
 				if (this->contacts_[idx - 1].getIndex()){
-					print_head();
 					print_info(this->contacts_[idx - 1]);
 					break ;
 				}
@@ -78,7 +76,6 @@ void	PhoneBook::addContact(void)
 	std::string darkest_secret;
 	std::string phone_number;
 
-	print_head();
 	std::cout << "Type first name: ";
 	std::cin >> first_name;
 	std::cout << "Type last name: ";
@@ -98,5 +95,4 @@ void	PhoneBook::addContact(void)
 	this->contacts_[i] = contact;
 	if (++i == 8)
 		i = 0;
-	print_head();
 }

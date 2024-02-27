@@ -20,6 +20,4 @@ public:
 
 };
 
-void	print_head(void);
-
 #endif
