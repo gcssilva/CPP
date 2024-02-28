@@ -7,8 +7,8 @@ int	main(void)
 
 	std::cout << "Welcome to the Phonebook!\n";
 	while (1){
-		std::cout << "Select one of the following options:\nADD, SEARCH or EXIT\n";
-		std::cin >> str;
+		std::cout << "Select one of the following options:\nADD, SEARCH or EXIT: ";
+		getline(std::cin, str);
 		if (str == "EXIT")
 			return 0;
 		else if (str == "ADD")

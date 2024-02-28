@@ -34,7 +34,7 @@ static int	is_nb(std::string str)
 
 void	PhoneBook::searchContact(void)
 {
-	int	idx;
+	std::string	in;
 
 	if (this->contacts_[0].getIndex()){
 		std::cout << "|     index|First Name| Last Name| Nick Name|\n";
@@ -49,14 +49,12 @@ void	PhoneBook::searchContact(void)
 		}
 		while (1){
 			std::cout << "Type contact index: ";
-			std::cin >> idx;
-			if (std::cin.fail()){
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			}
-			else if (idx > 0 && idx < 9){
-				if (this->contacts_[idx - 1].getIndex()){
-					print_info(this->contacts_[idx - 1]);
+			getline(std::cin, in);
+			if (in.empty() || in.size() != 1 || !is_nb(in))
+				;
+			else if((in[0] - 48) < 9 && (in[0] - 48) > 0){
+				if (this->contacts_[(in[0] - 48) - 1].getIndex()){
+					print_info(this->contacts_[(in[0] - 48) - 1]);
 					break ;
 				}
 			}
@@ -65,6 +63,20 @@ void	PhoneBook::searchContact(void)
 	}
 	else
 		std::cout << "PhoneBook is empty.\n";
+}
+
+static std::string	save_in(std::string s)
+{
+	std::string	in;
+
+	while(1){
+		std::cout << "Type " << s << ": ";
+		getline(std::cin, in);
+		if (!in.empty())
+			break ;
+		std::cout << s <<" cannot be empty\n";
+		}
+	return in;
 }
 
 void	PhoneBook::addContact(void)
@@ -76,20 +88,17 @@ void	PhoneBook::addContact(void)
 	std::string darkest_secret;
 	std::string phone_number;
 
-	std::cout << "Type first name: ";
-	std::cin >> first_name;
-	std::cout << "Type last name: ";
-	std::cin >> last_name;
-	std::cout << "Type nickname: ";
-	std::cin >> nickname;
-	std::cout << "Type darkest secret: ";
-	std::cin >> darkest_secret;
+	first_name = save_in("First Name");
+	last_name = save_in("Last Name");
+	nickname = save_in("Nickname");
+	darkest_secret = save_in("Darkest Secret");
 	while (1){
 		std::cout << "Type phone number: ";
-		std::cin >> phone_number;
-		if (is_nb(phone_number))
+		getline(std::cin, phone_number);
+		if (phone_number.empty() || !is_nb(phone_number))
+			std::cout << "Only numbers accepted\n";
+		else
 			break ;
-		std::cout << "Only numbers accepted\n";
 	}
 	Contact contact(i + 1, first_name, last_name, nickname, darkest_secret, phone_number);
 	this->contacts_[i] = contact;
