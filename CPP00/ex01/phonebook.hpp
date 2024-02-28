@@ -5,6 +5,7 @@
 #include <string>
 #include <iomanip>
 #include <limits>
+#include <cstdlib>
 #include "contact.hpp"
 
 class PhoneBook {

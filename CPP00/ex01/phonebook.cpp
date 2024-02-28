@@ -50,6 +50,10 @@ void	PhoneBook::searchContact(void)
 		while (1){
 			std::cout << "Type contact index: ";
 			getline(std::cin, in);
+			if (std::cin.eof()){
+				std::cout << std::endl;
+				std::exit(0);
+			}
 			if (in.empty() || in.size() != 1 || !is_nb(in))
 				;
 			else if((in[0] - 48) < 9 && (in[0] - 48) > 0){
@@ -72,6 +76,10 @@ static std::string	save_in(std::string s)
 	while(1){
 		std::cout << "Type " << s << ": ";
 		getline(std::cin, in);
+		if (std::cin.eof()){
+			std::cout << std::endl;
+			std::exit(0);
+		}
 		if (!in.empty())
 			break ;
 		std::cout << s <<" cannot be empty\n";
@@ -95,6 +103,10 @@ void	PhoneBook::addContact(void)
 	while (1){
 		std::cout << "Type phone number: ";
 		getline(std::cin, phone_number);
+		if (std::cin.eof()){
+			std::cout << std::endl;
+			std::exit(0);
+		}
 		if (phone_number.empty() || !is_nb(phone_number))
 			std::cout << "Only numbers accepted\n";
 		else
