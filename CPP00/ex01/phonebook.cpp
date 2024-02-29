@@ -69,6 +69,15 @@ void	PhoneBook::searchContact(void)
 		std::cout << "PhoneBook is empty.\n";
 }
 
+static int	alnum(std::string s)
+{
+	for (int i = 0; s[i]; ++i){
+		if ((s[i] > 47 && s[i] < 58) || (s[i] > 64 && s[i] < 91) || (s[i] > 96 && s[i] < 123))
+			return 1;
+	}
+	return 0;
+}
+
 static std::string	save_in(std::string s)
 {
 	std::string	in;
@@ -80,7 +89,7 @@ static std::string	save_in(std::string s)
 			std::cout << std::endl;
 			std::exit(0);
 		}
-		if (!in.empty())
+		if (!in.empty() && alnum(in))
 			break ;
 		std::cout << s <<" cannot be empty\n";
 		}
