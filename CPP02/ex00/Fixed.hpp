@@ -7,13 +7,13 @@ class Fixed
 {
 private:
 
-	int	nb;
-	static const int	bits = 8;
+	int	nb_;
+	static const int	bits_ = 8;
 
 public:
 	Fixed();
-	Fixed(Fixed& nb);
-	Fixed&	operator=(Fixed& nb);
+	Fixed(const Fixed& nb);
+	Fixed&	operator=(const Fixed& nb);
 	~Fixed();
 	int	getRawBits(void) const;
 	void	setRawBits(int const raw);
