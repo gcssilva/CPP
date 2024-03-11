@@ -12,7 +12,8 @@ private:
 	unsigned int	hit_points_;
 	unsigned int	energy_points_;
 	unsigned int	attack_damage_;
-
+	ClapTrap();
+	
 public:
 
 	ClapTrap(std::string name);

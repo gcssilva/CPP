@@ -1,5 +1,9 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+}
+
 ClapTrap::ClapTrap(std::string name) : hit_points_(10), energy_points_(10), attack_damage_(0)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -65,6 +69,10 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->hit_points_ == 0){
 		std::cout << this->name_ << " is dead!" << std::endl;
+		return ;
+	}
+	if (this->energy_points_ == 0){
+		std::cout << this->name_ << " have no energy!" << std::endl;
 		return ;
 	}
 	if (amount > this->energy_points_){

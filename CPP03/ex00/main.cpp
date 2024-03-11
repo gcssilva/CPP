@@ -4,8 +4,9 @@ int	main(void)
 {
 	ClapTrap	ct = ClapTrap("robo");
 	ct.attack("outro robo");
-	ct.takeDamage(2);
-	ct.beRepaired(2);
+	ct.takeDamage(9);
+	ct.beRepaired(9);
+	ct.attack("outro robo");
 	ct.takeDamage(10);
 	ct.beRepaired(1);
 	ct.attack("outro robo");
