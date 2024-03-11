@@ -19,8 +19,9 @@ Animal&	Animal::operator=(const Animal& animal)
 	return *this;
 }
 
-void	Animal::makeSound()
+void	Animal::makeSound() const
 {
+	std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
 }
 
 Animal::~Animal()

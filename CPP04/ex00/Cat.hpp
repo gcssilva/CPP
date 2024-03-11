@@ -9,7 +9,7 @@ public:
 	Cat();
 	Cat(const Cat& cat);
 	Cat&	operator=(const Cat& cat);
-	void	makeSound();
+	void	makeSound() const;
 	~Cat();
 };
 
