@@ -24,6 +24,11 @@ void	Animal::makeSound() const
 	std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
 }
 
+Brain*	Animal::getBrain() const
+{
+	return NULL;
+}
+
 Animal::~Animal()
 {
 	std::cout << "[Animal]Destructor called" << std::endl;
