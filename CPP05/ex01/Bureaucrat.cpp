@@ -18,7 +18,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat): name(bureaucrat.name), gra
 		throw Bureaucrat::GradeTooLowExeption();
 }
 
-
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& bureaucrat)
 {
 	this->grade = bureaucrat.getGrade();
@@ -49,6 +48,16 @@ void	Bureaucrat::decrement()
 		throw Bureaucrat::GradeTooLowExeption();
 	else
 		this->grade++;
+}
+
+void	Bureaucrat::signForm(const Form& form) const
+{
+	if (form.getSignStatus())
+		std::cout << this->name << " could not sign " << form.getName() << " because it's already signed." << std::endl;
+	else if (form.getSignGrade() < this->grade)
+		std::cout << this->name << " could not sign " << form.getName() << " because grade is too low." << std::endl;
+	else
+		std::cout << this->name << " signed " << form.getName() << "." << std::endl;
 }
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& bureaucrat)

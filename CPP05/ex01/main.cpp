@@ -1,12 +1,15 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main()
 {
 	try
 	{
-		Bureaucrat guga("guga", 150);
+		Bureaucrat guga("guga", 50);
+		Form form1("formulario 1", 49, 10);
+		std::cout << form1;
 		guga.increment();
-		std::cout << guga << std::endl;
+		form1.beSigned(guga);
+		std::cout << form1;
 	}
 	catch(const std::exception& e)
 	{
