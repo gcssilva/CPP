@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <limits>
+# include <cmath>
 # include <iomanip>
 # include <string>
 # include <sstream>
@@ -20,6 +21,10 @@ private:
 public:
 
 	static void	convert(std::string literal);
+	static void f_conv(float f);
+	static void d_conv(double d);
+	static void c_conv(char c);
+	static void i_conv(int i);
 
 };
 
