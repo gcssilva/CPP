@@ -34,3 +34,29 @@ void	identify(Base* p)
 	else
 		std::cout << "Wrong type" << std::endl;
 }
+
+void	identify(Base& p)
+{
+	try
+	{
+		dynamic_cast<A&>(p);
+		std::cout << "Type A" << std::endl;
+		return ;
+	}
+	catch(const std::exception& e) {}
+	try
+	{
+		dynamic_cast<B&>(p);
+		std::cout << "Type B" << std::endl;
+		return ;
+	}
+	catch(const std::exception& e) {}
+	try
+	{
+		dynamic_cast<C&>(p);
+		std::cout << "Type C" << std::endl;
+		return ;
+	}
+	catch(const std::exception& e) {}
+	std::cout << "Wrong type" << std::endl;
+}
