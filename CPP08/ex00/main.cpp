@@ -11,7 +11,7 @@ int	main()
 	vec.push_back(4);
 	vec.push_back(5);
 	vec.push_back(6);
-	std::vector<int>::iterator	n = easyfind(vec, 7);
+	std::vector<int>::iterator	n = easyfind(vec, 1);
 
 	std::cout << *n << std::endl;
 	return 0;

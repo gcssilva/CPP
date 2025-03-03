@@ -58,5 +58,4 @@ void	identify(Base& p)
 		return ;
 	}
 	catch(const std::exception& e) {}
-	std::cout << "Wrong type" << std::endl;
 }

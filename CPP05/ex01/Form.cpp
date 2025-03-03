@@ -1,7 +1,5 @@
 #include "Form.hpp"
 
-Form::Form(): sign_grade(150), exec_grade(150){}
-
 Form::Form(const std::string name, const int sign_grade, const int exec_grade) : name(name), sign_grade(sign_grade), exec_grade(exec_grade)
 {
 	if (sign_grade > 150 || exec_grade > 150)
