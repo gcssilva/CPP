@@ -52,25 +52,26 @@ void	Bureaucrat::decrement()
 
 void	Bureaucrat::signForm(AForm& form) const
 {
-	if (form.getSignStatus() == true)
-		std::cout << this->name << " could not sign " << form.getName() << " because it's already signed." << std::endl;
-	else if (form.getSignGrade() < this->grade)
-		std::cout << this->name << " could not sign " << form.getName() << " because grade is too low." << std::endl;
-	else{
+	try
+	{
 		form.beSigned(*this);
 		std::cout << this->name << " signed " << form.getName() << "." << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->name << " could not sign " << form.getName() << " because " << e.what() << std::endl;;
 	}
 }
 
 void	Bureaucrat::executeForm(const AForm& form)
 {
 	try {
-		std::cout << *this << " executed form " << form.getName() << std::endl;
 		form.execute(*this);
+		std::cout << *this << " executed form " << form.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << this->name << " could not execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 

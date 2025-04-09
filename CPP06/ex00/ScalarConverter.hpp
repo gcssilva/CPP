@@ -21,10 +21,10 @@ private:
 public:
 
 	static void	convert(std::string literal);
-	static void f_conv(float f);
-	static void d_conv(double d);
-	static void c_conv(char c);
-	static void i_conv(int i);
+	static void f_conv(std::string n);
+	static void d_conv(std::string n);
+	static void c_conv(std::string n);
+	static void i_conv(std::string n);
 
 };
 

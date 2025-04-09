@@ -18,7 +18,7 @@ public:
 	Array(const Array& a);
 	Array&	operator=(const Array& a);
 	T&	operator[](unsigned int i);
-	unsigned int	get_len() const;
+	unsigned int size() const;
 	~Array();
 
 };

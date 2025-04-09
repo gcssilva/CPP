@@ -8,11 +8,14 @@ int	main(void)
 {
 	Intern	someRandomIntern;
 	AForm	*rrf;
+	Bureaucrat	boss("boss", 1);
 
 	try
 	{
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 		std::cout << *rrf << std::endl;
+		boss.signForm(*rrf);
+		boss.executeForm(*rrf);
 	    delete (rrf);
 	}
 	catch (std::exception &e)

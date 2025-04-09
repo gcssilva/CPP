@@ -42,13 +42,14 @@ int	Form::getExecGrade() const
 
 void	Form::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() > this->sign_grade) {
-		bureaucrat.signForm(*this);
+	if (this->getSignStatus() == true) {
+		throw Form::AlreadySignedExeption();
+	}
+	else if (bureaucrat.getGrade() > this->sign_grade) {
 		throw Form::GradeTooLowExeption();
 	}
 	else {
-		bureaucrat.signForm(*this);
-		this->sign_status = 1;
+		this->sign_status = true;
 	}
 }
 

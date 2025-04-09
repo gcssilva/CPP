@@ -44,10 +44,15 @@ int	AForm::getExecGrade() const
 
 void	AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() > this->sign_grade)
+	if (this->getSignStatus() == true) {
+		throw AForm::AlreadySignedExeption();
+	}
+	else if (bureaucrat.getGrade() > this->sign_grade) {
 		throw AForm::GradeTooLowExeption();
-	else
-		 this->sign_status = true;
+	}
+	else {
+		this->sign_status = true;
+	}
 }
 
 void	AForm::execute(const Bureaucrat& executor) const

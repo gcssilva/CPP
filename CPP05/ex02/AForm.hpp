@@ -42,6 +42,11 @@ public:
 		public:
 			virtual const char* what() const throw() {return "Form not signed";}
 	};
+	class AlreadySignedExeption: public std::exception
+	{
+		public:
+			virtual const char* what() const throw() {return "Form already signed";}
+	};
 
 };
 

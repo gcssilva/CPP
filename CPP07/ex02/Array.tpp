@@ -20,7 +20,7 @@ Array<T>::Array(unsigned int n)
 template <class T>
 Array<T>::Array(const Array& a)
 {
-	this->len = a.get_len();
+	this->len = a.size();
 	this->array = new T[this->len];
 	for (unsigned int i = 0; i < this->len; ++i)
 		this->array[i] = a.array[i];
@@ -29,7 +29,7 @@ Array<T>::Array(const Array& a)
 template <class T>
 Array<T>&	Array<T>::operator=(const Array& a)
 {
-	this->len = a.get_len();
+	this->len = a.size();
 	delete[] this->array;
 	this->array = new T[this->len];
 	for (unsigned int i = 0; i < this->len; ++i)
@@ -40,14 +40,14 @@ Array<T>&	Array<T>::operator=(const Array& a)
 template <class T>
 T&	Array<T>::operator[](unsigned int i)
 {
-	if (i < this->len)
+	if (this->len > 0 && i < this->len)
 		return this->array[i];
 	else
 		throw std::out_of_range("Invalid index.");
 }
 
 template <class T>
-unsigned int	Array<T>::get_len() const
+unsigned int	Array<T>::size() const
 {
 	return this->len;
 }

@@ -36,7 +36,11 @@ public:
 		public:
 			virtual const char* what() const throw() {return "Grade too low";}
 	};
-
+	class AlreadySignedExeption: public std::exception
+	{
+		public:
+			virtual const char* what() const throw() {return "Form already signed";}
+	};
 };
 
 std::ostream&	operator<<(std::ostream& out, const Form& form);

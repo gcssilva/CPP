@@ -7,7 +7,12 @@
 
 Base*	generate(void)
 {
-	std::srand(time(0));
+	static bool b = false;
+
+	if (b == false) {
+		std::srand(time(0));
+		b = true;
+	}
 	int	n = std::rand() % 3;
 	switch (n)
 	{
@@ -39,21 +44,21 @@ void	identify(Base& p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		A a = dynamic_cast<A&>(p);
 		std::cout << "Type A" << std::endl;
 		return ;
 	}
 	catch(const std::exception& e) {}
 	try
 	{
-		dynamic_cast<B&>(p);
+		B b = dynamic_cast<B&>(p);
 		std::cout << "Type B" << std::endl;
 		return ;
 	}
 	catch(const std::exception& e) {}
 	try
 	{
-		dynamic_cast<C&>(p);
+		C c = dynamic_cast<C&>(p);
 		std::cout << "Type C" << std::endl;
 		return ;
 	}

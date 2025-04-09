@@ -4,14 +4,12 @@ Intern::Intern() {}
 
 Intern::Intern(Intern& intern) {*this = intern;}
 
-Intern&	Intern::operator=(Intern& intern)
-{
-	*this = intern;
-	return(*this);
+Intern&	Intern::operator=(Intern& intern) {
+	(void)intern;
+	return *this;
 }
 
-AForm*	Intern::makeForm(std::string name, std::string target)
-{
+AForm*	Intern::makeForm(std::string name, std::string target) {
 	int form = -1;
 	AForm*	new_form;
 	std::string	forms[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};

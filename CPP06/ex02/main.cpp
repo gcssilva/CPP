@@ -13,5 +13,10 @@ int	main()
 	identify(b);
 	identify(*b);
 	delete b;
+	std::cout << std::endl;
+	Base* b2 = generate();
+	identify(b2);
+	identify(*b2);
+	delete b2;
 	return 0;
 }
